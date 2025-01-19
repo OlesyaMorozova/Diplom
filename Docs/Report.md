@@ -16,4 +16,4 @@
 3. Исправить выявленные баги
 
 ## Allure Report
-![2025-01-19_22-38-24.png](..%2F..%2F..%2FUsers%2F%EF%EA%2FDownloads%2F2025-01-19_22-38-24.png)
+![2025-01-19_22-38-24](https://github.com/user-attachments/assets/a07774d0-6b21-42d2-948e-8398b66ded8d)
