@@ -41,10 +41,5 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-    //для подключение postgresql
-    systemProperty 'db.url', System.getProperty('db.url', 'jdbc:postgresql://localhost:5432/app')
-    // для подключение mysql
-    systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://localhost:3306/app')
-    systemProperty 'db.user', System.getProperty('db.user', 'app')
-    systemProperty 'db.pass', System.getProperty('db.pass', 'pass')
+    systemProperty 'db.url', System.getProperty('db.url', "jdbc:mysql://localhost:3306/app")
 }
