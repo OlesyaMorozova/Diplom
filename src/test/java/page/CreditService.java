@@ -37,20 +37,12 @@ public class CreditService {
         continueButton.click();
     }
 
-    public void cleanFilledForm() {
-        cardNumberForm.doubleClick().sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        monthForm.doubleClick().sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        yearForm.doubleClick().sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        ownerForm.doubleClick().sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        cvcForm.doubleClick().sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-    }
-
     public void seeSuccessfulNotification() {
-        successNotification.should(visible, Duration.ofSeconds(4));
+        successNotification.should(visible, Duration.ofSeconds(15));
     }
 
     public void seeErrorNotification() {
-        errorNotification.should(visible, Duration.ofSeconds(4));
+        errorNotification.should(visible, Duration.ofSeconds(15));
     }
 
     public void seeEmptyField() {

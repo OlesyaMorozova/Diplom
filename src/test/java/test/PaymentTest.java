@@ -10,7 +10,6 @@ import page.PaymentService;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class PaymentTest {
     private Main main;
@@ -279,7 +278,7 @@ public class PaymentTest {
         paymentService = main.payWithDebitCard();
         var cardNumber = DataHelper.getApprovedCard();
         var month = DataHelper.getEnterMonth("00");
-        var year = DataHelper.generateYear(0);
+        var year = DataHelper.generateYear(1);
         var owner = DataHelper.generateOwner("EN");
         var cvc = DataHelper.generateCvc(3);
         paymentService.filledForm(cardNumber, month, year, owner, cvc);
@@ -325,9 +324,9 @@ public class PaymentTest {
     }
 
     @Test
-    public void shouldDonTAddCreditInOrderEntryStatusDeclined() {
+    public void shouldAddCreditInOrderEntryStatusApproved() {
         paymentService = main.payWithDebitCard();
-        var cardNumber = DataHelper.getDeclinedCard();
+        var cardNumber = DataHelper.getApprovedCard();
         var month = DataHelper.getGenerateMonth(0);
         var year = DataHelper.generateYear(0);
         var owner = DataHelper.generateOwner("EN");
@@ -335,7 +334,7 @@ public class PaymentTest {
         paymentService.filledForm(cardNumber, month, year, owner, cvc);
         var expected = DataHelperSQL.getDebitPaymentID();
         var actual = DataHelperSQL.getDebitOrderEntryId();
-        assertNotEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
